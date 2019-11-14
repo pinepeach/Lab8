@@ -1,0 +1,51 @@
+<html>
+
+<head>
+
+<body>
+
+    <script>
+        var alphabet = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+
+        function generatebuttons(n){
+            let x = 0;
+            if (n > 0 && n <= 26){
+                for (let i=0;i<n;i++){
+                    let buttons = document.createElement('button');
+                    buttons.innerHTML = alphabet[i];
+                    buttons.id = alphabet[i];
+                    document.body.appendChild(buttons);
+                    document.getElementById(alphabet[i]).onclick = function(){
+                        console.log('Button ' + alphabet[i] + ' was clicked');
+                    }
+                }
+            }
+        }
+        let n = prompt('How many buttons do you want?', );
+        generatebuttons(n);
+    </script>
+    <p id = 'Title'></p>
+    <p id = 'Serves'></p>
+    <p id = 'Ingredients'></p>
+<script>
+    function recipe(Title, Serves, Ingredients){
+        this.TT = Title;
+        this.Sv = Serves;
+        this.In = Ingredients;
+    }
+    let chicken = new recipe ("Chicken Cacciatore", 2, ["cinnamon", "lettuce", "onion"] );
+
+    function print(){
+        document.getElementById('Title').innerHTML = 'Title: ' + chicken.TT;
+        document.getElementById('Serves').innerHTML = 'Serves: ' + chicken.Sv;
+        document.getElementById('Ingredients').innerHTML = 'Ingredients: '
+        for (let i=0;i<chicken.In.length;i++){
+            document.write(chicken.In[i], '<br>', '<br>');
+        }
+    }
+    print()
+</script>
+</body>
+</head>
+
+</html>
